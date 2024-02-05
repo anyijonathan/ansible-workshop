@@ -11,3 +11,21 @@
       apt:
         name: libapache2-mod-php
         state: latest
+
+    - name: install git
+      apt:
+        name: git
+        state: latest
+
+    - name: repo folder
+      command: "mkdir ansible"   
+      command: "cd ansible"  
+
+    - name: clone a repository
+      git:
+        repo: https://github.com/anyijonathan/ansible-workshop.git
+        dest: /ansible
+        update: yes
+
+    - name: copy index.html to /var/www/html/
+      command: "sudo cp index.html /var/www/html/"
